@@ -102,7 +102,7 @@
 
     world.pointOfView({ lat: 25, lng: 10, altitude: window.innerWidth < 640 ? 3.2 : 2.3 }, 0);
 
-    fetch("vendor/countries-110m.json").then((r) => r.json()).then((topo) => {
+    fetch("countries-110m.json").then((r) => r.json()).then((topo) => {
       features = topojson.feature(topo, topo.objects.countries).features.filter((f) => f.properties.name !== "Antarctica");
       for (const f of features) centroids[f.properties.name] = centroid(f);
       world.polygonsData(features);
