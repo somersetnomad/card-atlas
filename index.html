@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Card Atlas — Card Games of the World</title>
+  <meta name="description" content="Spin the globe and discover card games from every country. Clear rules, animated demos, playable solitaire, a score keeper and a collectible passport.">
+  <meta name="theme-color" content="#0c2a22">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='12' y='6' width='40' height='52' rx='6' fill='%23f4ead2' stroke='%23c9a24b' stroke-width='3'/><text x='32' y='42' font-size='28' text-anchor='middle' fill='%23b3261e'>♥</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a href="#/" class="brand" aria-label="Card Atlas home">
+      <span class="brand-card" aria-hidden="true"><span>♠</span></span>
+      <span class="brand-text">Card <em>Atlas</em></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#/" data-nav="globe">Globe</a>
+      <a href="#/browse" data-nav="browse">Browse</a>
+      <a href="#/play" data-nav="play">Play</a>
+      <a href="#/records" data-nav="records">Records</a>
+      <a href="#/passport" data-nav="passport">Passport</a>
+    </nav>
+    <div class="top-actions">
+      <div class="search-wrap">
+        <input id="search" type="search" placeholder="Search 80+ games, countries…" autocomplete="off" aria-label="Search games">
+        <div id="search-results" class="search-results" role="listbox" hidden></div>
+      </div>
+      <button id="btn-sound" class="icon-btn" title="Sound on/off" aria-label="Toggle sound">🔊</button>
+      <button id="btn-theme" class="icon-btn" title="Light/dark" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <div class="players-bar" id="players-bar" role="radiogroup" aria-label="How many players?">
+    <span class="pb-label">How many players?</span>
+    <div class="pb-opts" id="pb-opts"></div>
+  </div>
+
+  <main id="app">
+    <section id="view-globe" class="view">
+      <div id="globe" aria-label="Interactive globe of card games"></div>
+      <div class="globe-hud">
+        <div class="hud-title">
+          <h1>Every card game<br><span>on Earth.</span></h1>
+          <p id="hud-count">Spin the globe. Tap a country to see its games.</p>
+        </div>
+        <div class="hud-actions">
+          <button id="btn-surprise" class="btn btn-gold">🎲 Surprise me</button>
+          <label class="toggle"><input type="checkbox" id="tg-heat"> <span>Heat map</span></label>
+          <label class="toggle"><input type="checkbox" id="tg-arcs"> <span>Spread arcs</span></label>
+          <div class="continents" id="continents"></div>
+        </div>
+      </div>
+      <aside id="panel" class="panel" aria-live="polite" hidden>
+        <button class="panel-close" id="panel-close" aria-label="Close">×</button>
+        <div id="panel-body"></div>
+      </aside>
+    </section>
+
+    <section id="view-page" class="view page" hidden></section>
+  </main>
+
+  <div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+  <div id="modal" class="modal" hidden></div>
+
+  <script src="vendor/globe.gl.min.js"></script>
+  <script src="vendor/topojson-client.min.js"></script>
+  <script src="js/data/solo.js"></script>
+  <script src="js/data/europe.js"></script>
+  <script src="js/data/americas.js"></script>
+  <script src="js/data/asia-africa.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/globe.js"></script>
+  <script src="js/demos.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/records.js"></script>
+  <script src="js/solitaire.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
